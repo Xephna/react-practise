@@ -4,6 +4,14 @@ import './Clicker.css'
 function Clicker(){
     const [count, setCount] = useState(parseInt(localStorage.getItem('count') ?? 0))
 
+    useEffect(()=>{
+        console.log("first render");
+        return () => {
+            localStorage.removeItem('count')
+            // console.log('component disposed');
+        }
+    },[])
+
     function increaseCount(){
         setCount(count+1)
         // console.log(count);
@@ -11,7 +19,7 @@ function Clicker(){
 
     useEffect(()=>{
         const savedCount = parseInt(localStorage.getItem('count') ?? 0)
-        console.log(savedCount);
+        // console.log(savedCount);
         setCount(savedCount)
     }, [])
 
