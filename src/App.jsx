@@ -22,7 +22,11 @@ function App() {
     <p className="para1" id='welcome'>hello</p>
     <button onClick={toggleClicker}>{hasClicker?'Hide':'Show'} Clicker</button>
     <NameCard />
-    {hasClicker?<Clicker />:null}
+    {hasClicker&&<>
+      <Clicker keyName="clickerA" color={`hsl(${Math.random()*361}deg ${Math.random()*101}% ${Math.random()*101}%)`} />
+      <Clicker keyName="clickerB" color={`hsl(${Math.random()*361}deg ${Math.random()*101}% ${Math.random()*101}%)`} />
+      <Clicker keyName="clickerC" color={`hsl(${Math.random()*361}deg ${Math.random()*101}% ${Math.random()*101}%)`} />
+    </>}
   </div>
   
 }
