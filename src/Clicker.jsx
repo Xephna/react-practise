@@ -3,19 +3,21 @@ import './Clicker.css'
 
 const Clicker = props => {
 
-    const {keyName, color="darkOrchid"} = props
+    //destructuring props
+    const {increment, keyName, color="darkOrchid"} = props
 
     const [count, setCount] = useState(parseInt(localStorage.getItem(keyName) ?? 0))
     
     useEffect(()=>{
-        console.log("first render");
+        // console.log("first render");
         return () => {
             localStorage.removeItem(keyName)
         }
     },[])
 
-    function increaseCount(){
+    const increaseCount = () => {
         setCount(count+1)
+        increment()
     }
 
     useEffect(()=>{
